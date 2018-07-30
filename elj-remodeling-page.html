@@ -27,6 +27,13 @@ table, th, td {
 table {
   margin: 10px auto;
 }
+
+.map-instructions {
+  margin: 0px 75px 0px 75px;
+  color: #C14D00;
+  font-size: 17px;
+  text-align: center;
+}
 </style>
 
 <p class="MsoNormal">Elizabeth La Jeunesse</p>
@@ -37,7 +44,9 @@ table {
 
 <div id="container"></div>
 
-<div id="drilldown_chart"></div>
+<div id="drilldown_chart">
+  <h4 class="map-instructions">Click or hover on any metropolitan area<br> to see change over time</h4>
+</div>
 
 
 <p class="MsoNormal">As the map shows, in 2018, aggregate annual expenditures on improvements to owner-occupied homes are expected to grow by 10 percent or more in 11 metros led by Kansas City, Charlotte, San Antonio, Dallas, and Sacramento. In total, expenditures are expected to grow by at least 5 percent in 41 metros and spending is not expected to decline in any of the 50 metros this year. Overall, these projections mirror our latest national remodeling projection of more than 7 percent growth in 2018 from the Leading Indicator of Remodeling Activity (<a href="http://www.jchs.harvard.edu/press-releases/robust-outlook-residential-remodeling-through-mid-year-2019">LIRA</a>), and also suggest how growth trends are expected to play out geographically across the nation.</p>
@@ -120,7 +129,7 @@ $.get(requestURL, function(obj) {
 
       subtitle: {
         //use subtitle element for our table notes
-        text: "<b>Click or hover on any metro for more detail.</b> <br/> Notes: This is a notes placeholder. <br/>Source: This is a source placeholder",
+        text: "Notes: This is a notes placeholder. <br/>Source: This is a source placeholder",
         widthAdjust: -300,
         align: 'left',
         x: 250,
