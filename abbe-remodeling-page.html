@@ -174,7 +174,7 @@
 <p>The robust gains in the national home remodeling market in recent years mask significant variation in spending trends at the local level. This research examining metro-level home improvement spending cycles uses data from the 1995–2015 national American Housing Surveys, which are sponsored by the U.S. Department of Housing and Urban Development. The main goal of the investigation is to understand if and how the magnitude and timing of remodeling spending booms, busts and recoveries have differed among major metro areas over the past twenty years, and how these cycles relate to local economic and housing market conditions. Although consistent historical data are available for only five major metropolitan areas, the research findings shed light for understanding the likely pace, timing, and volatility of historical home remodeling spending cycles for many more metropolitan areas around the country.</p>
 
 <h3><strong>INTERACTIVE CHARTS</strong></h3>
-  <p>(Read the full&nbsp;<a href="http://www.jchs.harvard.edu/sites/default/files/will_metro_remodeling_brief_july_2018.pdf" target="_blank" rel="noopener noreferrer">research brief</a> for more information)</p>
+  <p>(Read the full&nbsp;<a href="http://www.jchs.harvard.edu/sites/default/files/Harvard_JCHS_Will_Investigating_Metro-Area_Home_Improvement_Spending_Cycles_0.pdf" target="_blank" rel="noopener noreferrer">research brief</a> for more information)</p>
   
   <p>In the five metropolitan areas for which consistent historical data are available, there is surprising variety in the trajectory of home improvement spending over time, with some metros experiencing severe booms and busts and others exhibiting much more mild changes in spending.</p>
   
@@ -1036,7 +1036,7 @@ function createChart_AWill_OF5(selected_location) {
 
   /*~~~~~~~~ Build Chart Data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   var selected_data = [];
-  var rho_value = 'L(1) = ';
+  var rho_value = '? = ';
   if (selected_location == 'Chicago') {
     rho_value += '0.76';
   }
@@ -1177,7 +1177,7 @@ var range_AWill_OF7 = 'Sheet4!A:X';
 
 var chart_title_AWill_OF7 = 'ONLINE FIGURE 7: REMODELING & HOME SALES CYCLES';
 
-var table_notes_AWill_OF7 = 'Notes: L(1) is the correlation coefficient (ranging from -1 to +1 where -1 indicates a perfectly negative correlation, +1 a perfectly positive correlation and 0 no correlation) when home sales are given a one year lead over remodeling spending. Dollar values are adjusted for inflation. *Metro boundaries were updated in the 2015 AHS.<br/>Source: JCHS tabulations of HUD, American Housing Surveys; National Association of Realtors: Real Estate Outlook; CoreLogic, Inc.: Home Sales; Moodys Analytics Estimated.';
+var table_notes_AWill_OF7 = 'Notes: L(1) ? is the correlation coefficient (ranging from -1 to +1 where -1 indicates a perfectly negative correlation, +1 a perfectly positive correlation and 0 no correlation) when home sales are given a one year lead over remodeling spending. Dollar values are adjusted for inflation. *Metro boundaries were updated in the 2015 AHS.<br/>Source: JCHS tabulations of HUD, American Housing Surveys; National Association of Realtors: Real Estate Outlook; CoreLogic, Inc.: Home Sales; Moodys Analytics Estimated.';
 
 var categories_AWill_OF7 = [];
 var ref_data_AWill_OF7 = [];
@@ -1209,7 +1209,7 @@ function createChart_AWill_OF7(selected_location) {
   /*~~~~~~~~ Build Chart Data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   var selected_data = [];
 
-  var rho_value = 'L(1) = ';
+  var rho_value = 'L(1) ? = ';
   if (selected_location == 'Chicago') {
     rho_value += '0.53';
   }
