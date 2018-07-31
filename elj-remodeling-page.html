@@ -1,14 +1,31 @@
 <style>
+#map_wrapper {
+  width: 1150px;
+  height: 500px;
+  margin: auto;
+  font-family: "Open Sans", sans-serif;
+}
+
 #container {
   height: 480px;
   width: 640px;
-  margin: 0px auto;
+  margin: 0px 0px 0px 0px;
+  float: left;
 }
 
 #drilldown_chart {
   height: 190px;
   width: 480px;
-  margin: 0px auto;
+  margin: 150px auto auto 0px;
+  float: right;
+  clear: right;
+  display: block;
+}
+
+#table_notes {
+  font-size: .7rem;
+  color: #666;
+  text-align: center;
 }
 
 .tooltip_chart {
@@ -32,20 +49,22 @@ table {
   margin: 0px 75px 0px 75px;
   color: #C14D00;
   font-size: 17px;
-  text-align: center;
+  text-align: left;
 }
 </style>
 
-<p class="MsoNormal">Elizabeth La Jeunesse</p>
+<p class="MsoNormal">by Elizabeth La Jeunesse</p>
 
 <p class="MsoNormal">This August, the Remodeling Futures Program will publish a research note detailing our new projections for home improvement spending in 50 major metropolitan areas and the methodology and data we used to develop these forecasts. This marks the culmination of over a year of research into what drives homeowner remodeling activity at the local level.</p>
 
 <p class="MsoNormal">A “sneak preview” of the 2018 projections for 50 major metropolitan areas is displayed in the interactive map below. Click individual metros to get more information about recent historical trends and the 2018 projections for that area.</p>
 
+<div id="map_wrapper">
 <div id="container"></div>
 
 <div id="drilldown_chart">
-      <h4 class="map-instructions">Click on any metropolitan area<br> to view modelled growth rates over time</h4>
+      <h4 class="map-instructions">Click on any metropolitan area<br> to view historical trends and projections</h4>
+</div>
 </div>
 
 <p class="MsoNormal">As the map shows, in 2018, aggregate annual expenditures on improvements to owner-occupied homes are expected to grow by 10 percent or more in 11 metros led by Kansas City, Charlotte, San Antonio, Dallas, and Sacramento. In total, expenditures are expected to grow by at least 5 percent in 41 metros and spending is not expected to decline in any of the 50 metros this year. Overall, these projections mirror our latest national remodeling projection of more than 7 percent growth in 2018 from the Leading Indicator of Remodeling Activity (<a href="http://www.jchs.harvard.edu/press-releases/robust-outlook-residential-remodeling-through-mid-year-2019">LIRA</a>), and also suggest how growth trends are expected to play out geographically across the nation.</p>
@@ -73,6 +92,7 @@ cbsas = Highcharts.geojson(Highcharts.maps['countries/us/cbsa'])
 states = Highcharts.geojson(Highcharts.maps['countries/us/states'])
 //logoURL = 'http://www.jchs.harvard.edu/sites/jchs.harvard.edu/files/harvard_jchs_logo_2017.png'
 
+//var table_notes = "Notes: Projections methodology is outlined in forthcoming JCHS research note, “Projecting Home Improvement Spending at the Metropolitan Area Level.” <br/>Source: Joint Center tabulations of Moody’s Analytics, US Census Bureau, CoreLogic, National Association of Realtors, and Buildfax data."
 
 $(document).ready(function() {
   //Google Sheet API request
@@ -96,6 +116,8 @@ $.get(requestURL, function(obj) {
     //data = obj.values
     column_name = data[0][1]
     $('.year_label').html(column_name)
+
+    //$('#table_notes').html(table_notes)
 
     console.log(ref_data)
     Highcharts.setOptions({
@@ -253,7 +275,8 @@ $.get(requestURL, function(obj) {
           useHTML: true,
           padding: 1,
           backgroundColor: 'rgba(247,247,247,1)',
-          formatter: function() {
+          valueSuffix: '%',
+          /*formatter: function() {
             var GEOID = this.point.GEOID
             var metro_name = this.point.name
             setTimeout( function() {
@@ -300,10 +323,10 @@ $.get(requestURL, function(obj) {
                     text: null
                   }
                 },
-                /*tooltip: {
+                tooltip: {
                   pointFormat: '<b>{point.y}</b>',
                   valueSuffix: '%'
-                },*/
+                },
                 xAxis: {
                   //categories: categories.slice(2,10),
                   categories: [categories[1], '', '', '', '', '', '', categories[9]],
@@ -338,10 +361,10 @@ $.get(requestURL, function(obj) {
                   ],
                 }]
               });
-            })
+            }, 100)
             console.log(this)
             return '<div id="hc-tooltip" class="tooltip_chart"></div>' //+ tooltip_table;
-          }
+          }*/
         },
 
       /*~~~~~~Exporting options~~~~~~*/
